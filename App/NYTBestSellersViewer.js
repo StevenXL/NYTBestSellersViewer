@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
+  Navigator,
   StyleSheet,
   Text,
   View,
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const NYTBestSellersViewer = () =>
+const StandardView = () =>
   <View style={styles.container}>
     <Text style={styles.welcome}>
       Welcome to React Native!
@@ -37,5 +38,13 @@ const NYTBestSellersViewer = () =>
       Cmd+D or shake for dev menu
     </Text>
   </View>;
+
+const NYTBestSellersViewer = () =>
+  <Navigator
+    initialRoute={{}}
+    renderScene={(route, navigator) =>
+      <StandardView navigator={navigator} />
+      }
+  />;
 
 export default NYTBestSellersViewer;
