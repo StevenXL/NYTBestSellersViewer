@@ -41,4 +41,8 @@ IntroductoryView.propTypes = {
   navigator: React.PropTypes.object.isRequired,
 };
 
+IntroductoryView.contextTypes = {
+  store: React.PropTypes.object.isRequired,
+};
+
 export default IntroductoryView;
