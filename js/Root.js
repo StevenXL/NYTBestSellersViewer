@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import app from './reducers/app';
 import NYTBestSellersViewer from './NYTBestSellersViewer';
 
@@ -9,7 +10,7 @@ class Root extends Component {
     super(props);
 
     this.state = {
-      store: createStore(app),
+      store: createStore(app, applyMiddleware(thunk)),
     };
   }
 

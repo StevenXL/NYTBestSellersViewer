@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import CategoryList from './CategoryList';
-
-const GET_CATEGORIES = 'GET_CATEGORIES';
+import requestCategories from '../../actions/requestCategories';
 
 class CategoriesView extends Component {
   componentDidMount() {
     const { store } = this.context;
     this.unsubscribe = store.subscribe(() => this.forceUpdate());
-    store.dispatch({ type: GET_CATEGORIES });
+    store.dispatch(requestCategories);
   }
 
   componentWillUnmount() {
