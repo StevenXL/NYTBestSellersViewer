@@ -1,6 +1,17 @@
-// NOTE: App should take two arguments, but we don't do anything with them yet;
+import { combineReducers } from 'redux';
+import categories from './categories';
 
-const app = (state = {}) =>
-  state;
+
+const app = combineReducers({ categories });
 
 export default app;
+
+// const app = combineReducers({ categories });
+
+// const app = (state = {}, action) => {
+//  return (
+//    {
+//      categories: categories(state.categories, action);
+//    }
+//  );
+// };
