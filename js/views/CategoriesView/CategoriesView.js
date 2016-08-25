@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import CategoryList from './CategoryList';
+
+const GET_CATEGORIES = 'GET_CATEGORIES';
 
 class CategoriesView extends Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
+    const { store } = this.context;
+    this.unsubscribe = store.subscribe(() => this.forceUpdate());
+    store.dispatch({ type: GET_CATEGORIES });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   render() {
+    const { store } = this.context;
+    const { categories } = store.getState();
+
     return (
-      <Text>
-        Hello!
-      </Text>
+      <CategoryList categories={categories} />
     );
   }
 }
+
+CategoriesView.contextTypes = {
+  store: React.PropTypes.object.isRequired,
+};
+
+CategoriesView.propTypes = {
+  navigator: React.PropTypes.object.isRequired,
+};
 
 export default CategoriesView;
