@@ -1,6 +1,6 @@
 import React from 'react';
-import IntroductoryView from './views/IntroductoryView/IntroductoryView';
-import CategoriesView from './views/CategoriesView/CategoriesView';
+import IntroductoryView from '../views/IntroductoryView/IntroductoryView';
+import CategoriesView from '../views/CategoriesView/CategoriesView';
 import RoutingError from './RoutingError';
 
 const renderScene = (route, navigator) => {
