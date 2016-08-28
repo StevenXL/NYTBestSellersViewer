@@ -8,9 +8,4 @@ const NYTBestSellersViewer = () =>
     renderScene={renderScene}
   />;
 
-NYTBestSellersViewer.contextTypes = {
-  store: React.PropTypes.object.isRequired,
-};
-
-
 export default NYTBestSellersViewer;
