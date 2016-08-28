@@ -1,32 +1,6 @@
-import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import CategoryList from './CategoryList';
 
-class CategoriesView extends Component {
-  componentDidMount() {
-    const { store } = this.context;
-    this.unsubscribe = store.subscribe(() => this.forceUpdate());
-  }
+const mapStateToProps = (state) => ({ categories: state.categories });
 
-  componentWillUnmount() {
-    this.unsubscribe();
-  }
-
-  render() {
-    const { store } = this.context;
-    const { categories } = store.getState();
-
-    return (
-      <CategoryList categories={categories} />
-    );
-  }
-}
-
-CategoriesView.contextTypes = {
-  store: React.PropTypes.object.isRequired,
-};
-
-CategoriesView.propTypes = {
-  navigator: React.PropTypes.object.isRequired,
-};
-
-export default CategoriesView;
+export default connect(mapStateToProps)(CategoryList);
