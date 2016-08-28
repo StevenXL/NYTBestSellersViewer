@@ -3,11 +3,14 @@ import { View } from 'react-native';
 import styles from './styles.js';
 
 const DefaultView = ({ children }) => {
-  const { backgroundColorDefault, marginTopTwenty, flexOne } = styles;
+  const { backgroundColorDefault, flexOne } = styles;
+  const { marginLeftTen, marginTopTwenty } = styles;
 
   return (
-    <View style={[backgroundColorDefault, marginTopTwenty, flexOne]}>
-      {children}
+    <View style={[backgroundColorDefault, flexOne]}>
+      <View style={[marginLeftTen, marginTopTwenty]}>
+        {children}
+      </View>
     </View>
   );
 };
