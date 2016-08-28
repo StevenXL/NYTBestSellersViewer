@@ -39,7 +39,7 @@ const IntroductoryView = ({ navigator }, { store }) =>
     </Text>
     <TouchableHighlight onPress={() => routeToCategoriesView(store, navigator)}>
       <Text style={styles.touchable}>
-        Tap Here to View a the NYT Best Sellers Categories
+        Tap Here to View the NYT Best Sellers Categories
       </Text>
     </TouchableHighlight>
   </View>;

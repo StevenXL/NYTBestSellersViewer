@@ -1,18 +1,24 @@
 import React, { PropTypes } from 'react';
 import humps from 'humps';
+import { View, ListView } from 'react-native';
 import Category from './Category';
-import DefaultView from '../../common/DefaultView';
+import styles from '../../common/styles';
 
 const CategoryList = ({ categories }) => {
   const camelizedCategories = humps.camelizeKeys(categories);
-  const categoryElements = camelizedCategories.map(
-    (category, idx) => <Category {...category} key={idx} />
-  );
+  const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+  const data = ds.cloneWithRows(camelizedCategories);
 
   return (
-    <DefaultView>
-      {categoryElements}
-    </DefaultView>
+    <View style={styles.backgroundColorDefault}>
+      <ListView
+        dataSource={data}
+        enableEmptySections
+        renderRow={(category) => <Category {...category} />}
+        style={[styles.marginTopTwenty, styles.marginLeftTen]}
+      />
+    </View>
+
   );
 };
 
