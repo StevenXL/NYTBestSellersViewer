@@ -1,14 +1,16 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
 
 const Category = ({
   displayName,
 }) =>
-  <View>
-    <Text>
-      {displayName}{'\n'}
-    </Text>
-  </View>;
+  <TouchableHighlight onPress={() => console.log('hello')}>
+    <View>
+      <Text>
+        {displayName}{'\n'}
+      </Text>
+    </View>
+  </TouchableHighlight>;
 
 Category.propTypes = {
   displayName: React.PropTypes.string.isRequired,
