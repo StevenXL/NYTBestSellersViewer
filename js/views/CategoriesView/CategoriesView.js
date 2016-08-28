@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import CategoryList from './CategoryList';
-import requestCategories from '../../actions/requestCategories';
 
 class CategoriesView extends Component {
   componentDidMount() {
     const { store } = this.context;
     this.unsubscribe = store.subscribe(() => this.forceUpdate());
-    store.dispatch(requestCategories);
   }
 
   componentWillUnmount() {
