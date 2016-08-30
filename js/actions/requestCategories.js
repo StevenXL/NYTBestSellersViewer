@@ -8,8 +8,8 @@ const requestCategories = (dispatch) => {
     .then(responseJson =>
       dispatch(categoriesFetched(responseJson.results))
     )
-    .catch(e =>
-      console.warn(e)
+    .catch(error =>
+      console.warn(error)
     );
 };
 
