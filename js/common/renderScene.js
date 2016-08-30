@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
-import IntroductoryView from '../views/IntroductoryView/IntroductoryView';
-import CategoriesView from '../views/CategoriesView/CategoriesView';
+import IntroductoryView from '../views/Introductory/IntroductoryView';
+import CategoriesView from '../views/Categories/CategoriesView';
 import RoutingError from './RoutingError';
 
 const renderScene = (route, navigator) => {
