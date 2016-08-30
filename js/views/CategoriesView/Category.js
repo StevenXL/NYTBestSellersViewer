@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
 
-const Category = ({
-  displayName,
-}) =>
-  <TouchableHighlight onPress={() => console.log('hello')}>
+const Category = ({ displayName, onCategoryClick }) =>
+  <TouchableHighlight
+    onPress={onCategoryClick}
+  >
     <View>
       <Text>
         {displayName}{'\n'}
@@ -14,6 +14,7 @@ const Category = ({
 
 Category.propTypes = {
   displayName: React.PropTypes.string.isRequired,
+  onCategoryClick: React.PropTypes.func.isRequired,
 };
 
 export default Category;
