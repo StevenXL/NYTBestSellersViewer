@@ -1,4 +1,4 @@
-const CATEGORY_FETCHED = 'CATEGORY_FETCHED';
+import { CATEGORY_FETCHED } from '../common/constants';
 
 const categoryFetched = (category, data) =>
   ({ type: CATEGORY_FETCHED, category, data });
