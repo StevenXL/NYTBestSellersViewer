@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text } from 'react-native';
 import IntroductoryView from '../views/Introductory/IntroductoryView';
 import CategoriesView from '../views/Categories/CategoriesView';
+import CategoryView from '../views/Category/CategoryView';
 import RoutingError from './RoutingError';
 
 const renderScene = (route, navigator) => {
@@ -11,7 +11,7 @@ const renderScene = (route, navigator) => {
     case 'CategoriesView':
       return <CategoriesView {...route.props} navigator={navigator} />;
     case 'CategoryView':
-      return (<Text>Hello</Text>);
+      return <CategoryView {...route.props} navigator={navigator} />;
     default:
       throw new RoutingError(`Unknown route.id: ${route.id}`);
   }
