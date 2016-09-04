@@ -27,7 +27,12 @@ const Category = ({ category, navigator }) => {
             returnToCategories={returnToCategories}
           />
           }
-        style={[styles.backgroundColor, styles.marginLeftTen, styles.marginTopTwenty]}
+        style={[
+          styles.backgroundColor,
+          styles.marginLeftTen,
+          styles.marginTopTwenty,
+          styles.marginRightTen,
+        ]}
       />
     );
   } else { // if data is not available
