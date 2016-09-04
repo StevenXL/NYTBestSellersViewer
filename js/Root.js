@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { AppRegistry } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+
 import app from './reducers/app';
 import NYTBestSellersViewer from './NYTBestSellersViewer';
 
@@ -22,5 +24,7 @@ class Root extends Component {
     );
   }
 }
+
+AppRegistry.registerComponent('main', () => Root);
 
 export default Root;
