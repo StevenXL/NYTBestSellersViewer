@@ -7,7 +7,7 @@ const mergeCategoryData = (state = [], action) =>
     if (category.list_name_encoded === action.category) {
       replaceWith = _.assign({}, category, action.data, { isLoaded: true });
     } else {
-      replaceWith = _.assign({}, category);
+      replaceWith = _.assign({}, category, { isLoaded: false });
     }
 
     return replaceWith;
