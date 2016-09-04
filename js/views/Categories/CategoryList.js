@@ -10,7 +10,7 @@ const CategoryList = ({ categories, navigator, onCategoryClick }) => {
   const data = ds.cloneWithRows(camelizedCategories);
 
   return (
-    <View style={styles.backgroundColorDefault}>
+    <View style={[styles.backgroundColorDefault]}>
       <ListView
         dataSource={data}
         enableEmptySections
@@ -21,6 +21,7 @@ const CategoryList = ({ categories, navigator, onCategoryClick }) => {
               navigator.push({ id: 'CategoryView' });
               onCategoryClick(category.listNameEncoded);
             }}
+            navigator={navigator}
           />
           }
         style={[styles.marginTopTwenty, styles.marginLeftTen]}

@@ -7,20 +7,26 @@ import CategoryHeader from './CategoryHeader';
 
 import Book from './Book';
 
-const Category = ({ category }) => {
+const Category = ({ category, navigator }) => {
   let element;
 
   if (!_.isEmpty(category)) { // if data is available
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     const camelCasedBooks = camelizeKeys(category.results.books);
     const data = ds.cloneWithRows(camelCasedBooks);
+    const returnToCategories = () => navigator.pop();
 
     element = (
       <ListView
         dataSource={data}
         enableEmptySections
         renderRow={(book) => <Book {...book} />}
-        renderSectionHeader={() => <CategoryHeader displayName={category.display_name} />}
+        renderSectionHeader={() =>
+          <CategoryHeader
+            displayName={category.display_name}
+            returnToCategories={returnToCategories}
+          />
+          }
         style={[styles.backgroundColor, styles.marginLeftTen, styles.marginTopTwenty]}
       />
     );
@@ -35,6 +41,7 @@ const Category = ({ category }) => {
 
 Category.propTypes = {
   category: React.PropTypes.object.isRequired,
+  navigator: React.PropTypes.object.isRequired,
 };
 
 export default Category;
