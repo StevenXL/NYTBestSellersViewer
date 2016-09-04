@@ -19,8 +19,8 @@ const Category = ({ category }) => {
       <ListView
         dataSource={data}
         enableEmptySections
-        renderHeader={() => <CategoryHeader />}
         renderRow={(book) => <Book {...book} />}
+        renderSectionHeader={() => <CategoryHeader displayName={category.display_name} />}
         style={[styles.backgroundColor, styles.marginLeftTen, styles.marginTopTwenty]}
       />
     );
