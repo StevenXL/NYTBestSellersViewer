@@ -1,8 +1,9 @@
 import React from 'react';
-import { ListView, Text, View } from 'react-native';
+import { ListView, Text } from 'react-native';
 import _ from 'lodash';
 import { camelizeKeys } from 'humps';
 import styles from '../../common/styles';
+import CategoryHeader from './CategoryHeader';
 
 import Book from './Book';
 
@@ -16,10 +17,11 @@ const Category = ({ category }) => {
 
     element = (
       <ListView
-        style={[styles.backgroundColor, styles.marginLeftTen, styles.marginTopTwenty]}
         dataSource={data}
         enableEmptySections
+        renderHeader={() => <CategoryHeader />}
         renderRow={(book) => <Book {...book} />}
+        style={[styles.backgroundColor, styles.marginLeftTen, styles.marginTopTwenty]}
       />
     );
   } else { // if data is not available
